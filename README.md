@@ -1,6 +1,6 @@
 # Test Automation Framework
 
-Automated framework for UI and API testing using Python, Selenium, Requests, and Allure.
+Automated framework for UI and API testing using Python, Selenium, Httpx, and Allure.
 
 ## Features
 
@@ -29,7 +29,7 @@ For local execution without Docker:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/test_assignment.git
+   git clone https://github.com/kozlov2777/test_assignment.git
    cd test_assignment
    ```
 
@@ -59,12 +59,12 @@ For local execution without Docker:
 
 3. Run only API tests:
    ```bash
-   poetry run pytest test/test_api
+   poetry run pytest -m api
    ```
 
 4. Run only UI tests:
    ```bash
-   poetry run pytest test/test_ui
+   poetry run pytest -m ui
    ```
 
 5. Run with Allure report generation:
@@ -81,7 +81,7 @@ To view results:
 1. Go to the "Actions" tab in the GitHub repository
 2. Select the latest workflow run
 3. In the "Artifacts" section, download "allure-report" for local viewing
-4. Or visit the project's GitHub Pages if you are working with the main/master branch: https://your-username.github.io/test_assignment/
+4. Or visit the project's GitHub Pages if you are working with the main/master branch: https://kozlov2777.github.io/test_assignment/
 
 ## Project Structure
 
@@ -98,7 +98,6 @@ To view results:
 │   └── test_ui/         # UI tests
 │       └── fixtures/    # Pytest fixtures
 ├── .github/workflows/   # GitHub Actions configuration
-├── allure-results/      # Test results for Allure
 ├── Dockerfile           # Image for running tests
 ├── docker-compose.yml   # Docker Compose configuration
 ├── pyproject.toml       # Dependencies and Poetry configuration
