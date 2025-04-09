@@ -21,7 +21,7 @@ This test verifies the complete purchase flow:
 """
 )
 @allure.severity(allure.severity_level.CRITICAL)
-def test_user_login_and_checkout_with_cart_item_removal(
+def test_full_purchase_flow_with_item_removal_and_total_verification(
     product_in_cart,
     checkout_step_one_page,
     checkout_step_two_page,
