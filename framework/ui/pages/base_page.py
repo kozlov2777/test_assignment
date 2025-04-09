@@ -413,16 +413,22 @@ class BasePage:
 
     def _take_screenshot(self, name: str) -> None:
         """
-        Take a screenshot and save it.
+        Take a screenshot and attach it to Allure report.
 
         Args:
             name: Screenshot name
         """
         try:
-            timestamp = time.strftime("%Y%m%d_%H%M%S")
-            filename = f"screenshot_{name}_{timestamp}.png"
-            self.driver.save_screenshot(filename)
-            logger.info(f"Screenshot saved: {filename}")
+            screenshot_data = self.driver.get_screenshot_as_png()
+
+            import allure
+
+            allure.attach(
+                screenshot_data,
+                name=f"Screenshot: {name}",
+                attachment_type=allure.attachment_type.PNG,
+            )
+            logger.info(f"Screenshot attached to Allure report: {name}")
         except Exception as e:
             logger.error(f"Failed to take screenshot: {str(e)}")
 
