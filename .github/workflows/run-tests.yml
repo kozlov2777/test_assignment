@@ -6,9 +6,14 @@ on:
   pull_request:
     branches: [ main, master ]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed for github-pages-deploy-action
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,7 +36,7 @@ jobs:
           allure_history: allure-history
       
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Updated from v3 to v4
         if: always()
         with:
           name: allure-report
