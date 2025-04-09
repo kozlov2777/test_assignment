@@ -5,6 +5,12 @@ on:
     branches: [ '**' ]  
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual run'
+        required: false
+        default: 'Manual testing'
 
 permissions:
   contents: read
@@ -13,7 +19,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed for github-pages-deploy-action
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,7 +42,7 @@ jobs:
           allure_history: allure-history
       
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v4  # Updated from v3 to v4
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-report
