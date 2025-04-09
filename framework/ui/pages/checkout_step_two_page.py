@@ -6,30 +6,12 @@ from framework.ui.pages.base_page import BasePage
 
 class CheckoutStepTwoPage(BasePage):
     def get_item_total_text(self) -> str:
-        """
-        Gets the text with total items cost without tax.
-
-        Returns:
-            str: Full element text
-        """
         return self.get_text(locator=CheckoutStepTwoPageLocator.ITEM_TOTAL_TEXT)
 
     def get_tax_text(self) -> str:
-        """
-        Gets the text with tax amount.
-
-        Returns:
-            str: Full element text
-        """
         return self.get_text(locator=CheckoutStepTwoPageLocator.TAX_TEXT)
 
     def get_total_text(self) -> str:
-        """
-        Gets the text with total order amount.
-
-        Returns:
-            str: Full element text
-        """
         return self.get_text(locator=CheckoutStepTwoPageLocator.TOTAL_TEXT)
 
     def click_finish_button(self):
