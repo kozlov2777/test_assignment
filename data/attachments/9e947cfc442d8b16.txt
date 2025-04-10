@@ -1,0 +1,5 @@
+URL: /posts/29
+Method: GET
+Params: None
+JSON: None
+Headers: None
