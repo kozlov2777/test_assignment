@@ -1,2 +1,0 @@
-Status Code: 404
-Response Time: 0.069109s

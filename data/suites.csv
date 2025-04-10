@@ -1,12 +1,5 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "
-        This test verifies that the API correctly returns a post when requested by ID:
-        1. Sends a GET request to retrieve a post by ID
-        2. Verifies the status code is 200 OK
-        3. Validates that the response contains the 'title' field as a string
-        4. Validates the complete response schema using Pydantic model
-        ","46","Verify successful retrieval of a post by ID","API Tests","Thu Apr 10 10:06:58 GMT 2025","passed","Thu Apr 10 10:06:58 GMT 2025","TestJsonPlaceholder","JSONPlaceholder API","",""
-"
         This test verifies the complete purchase flow:
         1. Using Selenium WebDriver, open the main page
         2. Get login/password from the main page
@@ -15,10 +8,17 @@
         5. Open the cart and remove all products except one, save the price
         6. Complete Checkout, verify Total
         7. Click Finish and verify completion message
-        ","460","Verify complete purchase flow from login to order confirmation","UI Tests","Thu Apr 10 10:07:00 GMT 2025","passed","Thu Apr 10 10:07:00 GMT 2025","TestPurchaseFlow","Checkout Flow","",""
+        ","448","Verify complete purchase flow from login to order confirmation","UI Tests","Thu Apr 10 10:30:14 GMT 2025","passed","Thu Apr 10 10:30:14 GMT 2025","TestPurchaseFlow","Checkout Flow","",""
+"
+        This test verifies that the API correctly returns a post when requested by ID:
+        1. Sends a GET request to retrieve a post by ID
+        2. Verifies the status code is 200 OK
+        3. Validates that the response contains the 'title' field as a string
+        4. Validates the complete response schema using Pydantic model
+        ","268","Verify successful retrieval of a post by ID","API Tests","Thu Apr 10 10:30:12 GMT 2025","passed","Thu Apr 10 10:30:12 GMT 2025","TestJsonPlaceholder","JSONPlaceholder API","",""
 "
         This test verifies that the API correctly handles requests for non-existent posts:
         1. Sends a GET request with an ID that doesn't exist
         2. Verifies the status code is 404 Not Found
         3. Validates that the response body is an empty JSON object
-        ","70","Verify 404 response when requesting a non-existent post","API Tests","Thu Apr 10 10:06:58 GMT 2025","passed","Thu Apr 10 10:06:58 GMT 2025","TestJsonPlaceholder","JSONPlaceholder API","",""
+        ","262","Verify 404 response when requesting a non-existent post","API Tests","Thu Apr 10 10:30:12 GMT 2025","passed","Thu Apr 10 10:30:12 GMT 2025","TestJsonPlaceholder","JSONPlaceholder API","",""
