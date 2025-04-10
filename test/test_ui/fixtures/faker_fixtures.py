@@ -13,4 +13,4 @@ def fake_data():
     """
     with allure.step("Initialize Faker"):
         fake = Faker("en_US")
-    return fake
+    yield fake

@@ -15,17 +15,14 @@ def extract_price_as_decimal(text: str) -> Decimal:
     Raises:
         ValueError: If price cannot be extracted or converted
     """
-    # First, look for $XX.XX format
     price_match = re.search(r"\$(\d+\.\d+)", text)
     if price_match:
         price_str = price_match.group(1)
     else:
-        # If not found, look for just XX.XX
         price_match = re.search(r"(\d+\.\d+)", text)
         if price_match:
             price_str = price_match.group(1)
         else:
-            # If nothing found, remove all symbols except digits and dot
             price_str = re.sub(r"[^\d.]", "", text)
             if not price_str:
                 raise ValueError(f"Could not extract price from text: '{text}'")

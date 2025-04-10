@@ -15,13 +15,14 @@ services:
   allure:
     image: frankescobar/allure-docker-service
     depends_on:
-      - tests
+      tests:
+        condition: service_completed_successfully
     ports:
       - "5050:5050"
     volumes:
       - ./allure-results:/app/allure-results
     environment:
-      - CHECK_RESULTS_EVERY_SECONDS=3
+      - CHECK_RESULTS_EVERY_SECONDS=10
       - KEEP_HISTORY=true
 
 volumes:

@@ -14,4 +14,13 @@ class JsonPlaceholderClient(BaseClient):
         )
 
     def get_post(self, post_id: int) -> httpx.Response:
+        """
+        Retrieve a post by its ID.
+
+        Args:
+            post_id: The ID of the post to retrieve
+
+        Returns:
+            httpx.Response: The HTTP response containing the post data
+        """
         return self.get(f"/posts/{post_id}")
