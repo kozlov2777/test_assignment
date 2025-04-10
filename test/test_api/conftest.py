@@ -1,1 +1,1 @@
-from test.test_api.fixtures.api_client_fixtures import jsonplaceholder_client
+from test.test_api.fixtures.api_client_fixtures import json_placeholder_client

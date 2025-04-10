@@ -4,7 +4,7 @@ from framework.api.clients.json_placeholder_client import JsonPlaceholderClient
 
 
 @pytest.fixture
-def jsonplaceholder_client():
+def json_placeholder_client():
     """
     Fixture that provides a JsonPlaceholderClient instance.
 
