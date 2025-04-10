@@ -49,4 +49,4 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 ENV HEADLESS=true
 
-CMD ["bash", "-c", "pytest test -v --alluredir=./allure-results"]
+CMD ["bash", "-c", "pytest -v --alluredir=./allure-results"]
