@@ -13,10 +13,10 @@ from framework.ui.pages.login_page import LoginPage
 def login_page(driver) -> LoginPage:
     """
     Fixture that provides a LoginPage instance.
-    
+
     Args:
         driver: WebDriver instance from driver fixture
-        
+
     Returns:
         LoginPage: Initialized login page with opened URL
     """
@@ -30,10 +30,10 @@ def login_page(driver) -> LoginPage:
 def inventory_page(driver) -> InventoryPage:
     """
     Fixture that provides an InventoryPage instance.
-    
+
     Args:
         driver: WebDriver instance from driver fixture
-        
+
     Returns:
         InventoryPage: Initialized inventory page
     """
@@ -46,10 +46,10 @@ def inventory_page(driver) -> InventoryPage:
 def cart_page(driver) -> CartPage:
     """
     Fixture that provides a CartPage instance.
-    
+
     Args:
         driver: WebDriver instance from driver fixture
-        
+
     Returns:
         CartPage: Initialized cart page
     """
@@ -62,10 +62,10 @@ def cart_page(driver) -> CartPage:
 def checkout_step_one_page(driver) -> CheckoutStepOnePage:
     """
     Fixture that provides a CheckoutStepOnePage instance.
-    
+
     Args:
         driver: WebDriver instance from driver fixture
-        
+
     Returns:
         CheckoutStepOnePage: Initialized checkout step one page
     """
@@ -78,10 +78,10 @@ def checkout_step_one_page(driver) -> CheckoutStepOnePage:
 def checkout_step_two_page(driver) -> CheckoutStepTwoPage:
     """
     Fixture that provides a CheckoutStepTwoPage instance.
-    
+
     Args:
         driver: WebDriver instance from driver fixture
-        
+
     Returns:
         CheckoutStepTwoPage: Initialized checkout step two page
     """
@@ -94,10 +94,10 @@ def checkout_step_two_page(driver) -> CheckoutStepTwoPage:
 def checkout_complete_page(driver) -> CheckoutCompletePage:
     """
     Fixture that provides a CheckoutCompletePage instance.
-    
+
     Args:
         driver: WebDriver instance from driver fixture
-        
+
     Returns:
         CheckoutCompletePage: Initialized checkout complete page
     """
@@ -110,10 +110,10 @@ def checkout_complete_page(driver) -> CheckoutCompletePage:
 def get_credentials(login_page):
     """
     Fixture that retrieves test credentials from the login page.
-    
+
     Args:
         login_page: LoginPage instance from login_page fixture
-        
+
     Returns:
         tuple: Tuple with (username, password)
     """

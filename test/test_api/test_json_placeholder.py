@@ -3,6 +3,7 @@ from http import HTTPStatus
 
 import allure
 import pytest
+import pytest_check as check
 from pydantic import ValidationError
 
 from framework.api.models.post import Post
@@ -31,7 +32,7 @@ def test_get_post(jsonplaceholder_client):
         response = jsonplaceholder_client.get_post(post_id)
 
     with allure.step("Verify the response status code is 200"):
-        assert response.status_code == HTTPStatus.OK
+        check.equal(response.status_code, HTTPStatus.OK)
 
     with allure.step("Get response body"):
         try:
@@ -84,12 +85,11 @@ def test_get_nonexistent_post(jsonplaceholder_client):
         response = jsonplaceholder_client.get_post(non_existent_id)
 
     with allure.step("Verify the response status code is 404"):
-        assert response.status_code == HTTPStatus.NOT_FOUND
+        check.equal(response.status_code, HTTPStatus.NOT_FOUND)
 
     with allure.step("Verify the response body is empty JSON"):
         try:
             data = response.json()
-            assert data == {}, f"Expected empty JSON object, got {data}"
         except ValueError as e:
             allure.attach(
                 f"Failed to parse response as JSON: {str(e)}\nResponse text: {response.text}",
@@ -98,4 +98,4 @@ def test_get_nonexistent_post(jsonplaceholder_client):
             )
             pytest.fail(f"Failed to parse response as JSON: {e}")
 
-    assert data == {}
+    check.equal(data, {}, f"Expected empty JSON object, got {data}")

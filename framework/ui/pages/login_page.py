@@ -11,7 +11,7 @@ class LoginPage(BasePage):
 
     def input_username(self, username: str):
         """Input a username into the username field.
-        
+
         Args:
             username: The username to input
         """
@@ -25,7 +25,7 @@ class LoginPage(BasePage):
 
     def input_password(self, password: str):
         """Input a password into the password field.
-        
+
         Args:
             password: The password to input
         """
@@ -43,7 +43,7 @@ class LoginPage(BasePage):
 
     def get_credentials(self):
         """Extract sample credentials from the login page.
-        
+
         Returns:
             tuple: A tuple containing (username, password)
         """

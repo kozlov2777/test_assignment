@@ -4,10 +4,10 @@ from framework.ui.pages.base_page import BasePage
 
 class InventoryPage(BasePage):
     """Page object for the inventory/products page."""
-    
+
     def clict_add_to_card_item(self, index: int = 1):
         """Click the 'Add to Cart' button for a specific product by index.
-        
+
         Args:
             index: The index of the product (starting from 1)
         """
@@ -15,10 +15,10 @@ class InventoryPage(BasePage):
 
     def get_item_price_text(self, index: int = 1):
         """Get the price text of a product by index.
-        
+
         Args:
             index: The index of the product (starting from 1)
-            
+
         Returns:
             str: The price text of the product
         """
@@ -26,10 +26,10 @@ class InventoryPage(BasePage):
 
     def get_item_description(self, index: int = 1):
         """Get the description text of a product by index.
-        
+
         Args:
             index: The index of the product (starting from 1)
-            
+
         Returns:
             str: The description text of the product
         """

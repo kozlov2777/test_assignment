@@ -6,10 +6,10 @@ from framework.ui.pages.base_page import BasePage
 
 class CheckoutStepOnePage(BasePage):
     """Page object for the first step of checkout with customer information form."""
-    
+
     def input_first_name_text(self, text: str):
         """Input first name in the checkout form.
-        
+
         Args:
             text: First name to input
         """
@@ -17,7 +17,7 @@ class CheckoutStepOnePage(BasePage):
 
     def input_last_name_text(self, text: str):
         """Input last name in the checkout form.
-        
+
         Args:
             text: Last name to input
         """
@@ -25,7 +25,7 @@ class CheckoutStepOnePage(BasePage):
 
     def input_postal_code_text(self, text: str):
         """Input postal code in the checkout form.
-        
+
         Args:
             text: Postal code to input
         """

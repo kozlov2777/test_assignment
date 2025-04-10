@@ -1,5 +1,6 @@
 import allure
 import pytest
+import pytest_check as check
 
 from framework.utils import extract_price_as_decimal
 
@@ -15,12 +16,13 @@ class TestPurchaseFlow:
     @allure.description(
         """
         This test verifies the complete purchase flow:
-        1. User logs in
-        2. Adds multiple products to cart
-        3. Removes extra products leaving only one
-        4. Proceeds to checkout
-        5. Completes the purchase
-        6. Verifies order confirmation
+        1. Using Selenium WebDriver, open the main page
+        2. Get login/password from the main page
+        3. Use the obtained credentials to login
+        4. Select multiple products to the cart
+        5. Open the cart and remove all products except one, save the price
+        6. Complete Checkout, verify Total
+        7. Click Finish and verify completion message
         """
     )
     def test_full_purchase_flow_with_item_removal_and_total_verification(
@@ -72,14 +74,18 @@ class TestPurchaseFlow:
                 attachment_type=allure.attachment_type.TEXT,
             )
 
-            assert (
-                price_decimal == item_total_decimal
-            ), f"Price in cart doesn't match items total"
+            check.equal(
+                price_decimal,
+                item_total_decimal,
+                f"Price in cart doesn't match items total",
+            )
 
             expected_total = item_total_decimal + tax_decimal
-            assert (
-                total_decimal == expected_total
-            ), f"Total amount doesn't match sum of items and tax"
+            check.equal(
+                total_decimal,
+                expected_total,
+                f"Total amount doesn't match sum of items and tax",
+            )
 
         with allure.step("Complete checkout"):
             checkout_step_two_page.click_finish_button()
@@ -105,9 +111,9 @@ class TestPurchaseFlow:
                 attachment_type=allure.attachment_type.TEXT,
             )
 
-            assert complete_title == "Checkout: Complete!"
-            assert complete_header == "Thank you for your order!"
-            assert (
-                complete_text
-                == "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+            check.equal(complete_title, "Checkout: Complete!")
+            check.equal(complete_header, "Thank you for your order!")
+            check.equal(
+                complete_text,
+                "Your order has been dispatched, and will arrive just as fast as the pony can get there!",
             )

@@ -7,7 +7,7 @@ from framework.api.clients.json_placeholder_client import JsonPlaceholderClient
 def jsonplaceholder_client():
     """
     Fixture that provides a JsonPlaceholderClient instance.
-    
+
     Returns:
         JsonPlaceholderClient: Initialized API client for JSONPlaceholder service
     """
