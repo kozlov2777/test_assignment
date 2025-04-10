@@ -44,10 +44,15 @@ jobs:
             cp -r $(pwd)/gh-pages/history/* allure-history/history/ || true
           fi
           # Generate report with history
-          docker run -v $(pwd)/allure-results:/app/allure-results \
-                     -v $(pwd)/allure-report:/app/allure-report \
-                     -v $(pwd)/allure-history:/app/allure-history \
-                     --rm ghcr.io/allure-framework/allure-report-action:latest
+          docker run --rm \
+            -v $(pwd)/allure-results:/allure-results \
+            -v $(pwd)/allure-report:/allure-report \
+            -e CHECK_RESULTS_EMPTY=true \
+            frankescobar/allure-docker-service:latest allure generate -c /allure-results -o /allure-report
+          # Copy history to report if exists
+          if [ -d "$(pwd)/allure-history/history" ]; then
+            cp -r $(pwd)/allure-history/history $(pwd)/allure-report/ || true
+          fi
           # Ensure permissions are correct
           sudo chown -R $(id -u):$(id -g) allure-report
       
