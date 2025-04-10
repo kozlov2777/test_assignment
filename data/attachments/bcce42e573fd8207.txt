@@ -1,4 +1,4 @@
-URL: /posts/6972
+URL: /posts/3992
 Method: GET
 Params: None
 JSON: None
