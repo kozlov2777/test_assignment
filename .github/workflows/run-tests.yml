@@ -34,12 +34,22 @@ jobs:
           docker run --volume "$(pwd)/allure-results:/app/allure-results" test-app
       
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
         if: always()
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
-          allure_history: allure-history
+        run: |
+          mkdir -p allure-history
+          mkdir -p allure-report
+          # Copy existing history if available
+          if [ -d "$(pwd)/gh-pages/history" ]; then
+            mkdir -p allure-history/history
+            cp -r $(pwd)/gh-pages/history/* allure-history/history/ || true
+          fi
+          # Generate report with history
+          docker run -v $(pwd)/allure-results:/app/allure-results \
+                     -v $(pwd)/allure-report:/app/allure-report \
+                     -v $(pwd)/allure-history:/app/allure-history \
+                     --rm ghcr.io/allure-framework/allure-report-action:latest
+          # Ensure permissions are correct
+          sudo chown -R $(id -u):$(id -g) allure-report
       
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
@@ -50,9 +60,10 @@ jobs:
           retention-days: 30
       
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         with:
-          folder: allure-report
-          branch: gh-pages
-          clean: true 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./allure-report
+          force_orphan: false 
