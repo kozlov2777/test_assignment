@@ -77,6 +77,13 @@ For local execution without Docker:
 
 Tests are automatically run on each push to the repository via GitHub Actions.
 
+Manual Execution:
+1. Go to the "Actions" tab in the GitHub repository
+2. Select the "Run Tests" workflow
+3. Click on "Run workflow" dropdown button
+4. Optionally, add a reason for the manual run
+5. Click the green "Run workflow" button
+
 To view results:
 1. Go to the "Actions" tab in the GitHub repository
 2. Select the latest workflow run
